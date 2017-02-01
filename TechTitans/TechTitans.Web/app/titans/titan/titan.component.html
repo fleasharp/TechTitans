@@ -1,0 +1,41 @@
+﻿
+<div *ngIf="titan">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h4 class="panel-title">{{titan.name}}</h4>
+        </div>
+        <div class="panel-body">
+            <div *ngIf="isError" class="alert alert-danger alert-dismissible fade in" role="alert">
+                <button type="button" class="close" (click)="isError = false" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>Ah, snap!</strong> {{ errorMessage }}
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div style="padding-top: 25px;"><label>Titan Id: </label>{{titan.id}}</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <label>Name: </label>
+                    <input [(ngModel)]="titan.name" placeholder="name" />
+                </div>
+                <div class="col-md-3">
+                    <label>Company :</label>
+                    <!-- -->
+                </div>
+            </div>
+            <div class="row" style="padding-top: 15px;">
+                <div class="col-md-1">
+                    <button class="btn btn-primary" (click)="update()" [style.display]="isUpdate">Update</button>
+                    <button class="btn btn-primary" (click)="add()" [style.display]="isAdd">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-1">
+    <button class="btn btn-primary" (click)="goBack()">Back</button>
+</div>

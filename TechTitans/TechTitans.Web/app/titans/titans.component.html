@@ -1,0 +1,25 @@
+﻿<div>
+    <h3>Titans</h3>
+    <div>
+
+    </div>
+        <table class="table">
+            <tr>
+                <td><input type="text" placeholder="Search" />&nbsp;&nbsp;<button class="btn btn-primary">Search</button></td>
+                <td>
+                    <button class="btn btn-primary" title="Add a new company" (click)="gotoTitan()">+Add New</button>
+                </td>
+            </tr>
+        </table>
+    <div style="padding-top: 10px;">
+        <table class="table table-striped">
+            <tr>
+                <th>Name</th>
+                <th>Company</th>
+            </tr>
+            <tr *ngFor="let t of titans | async">
+                <td><a (click)="gotoTitan(t)">{{ t.name }}</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
