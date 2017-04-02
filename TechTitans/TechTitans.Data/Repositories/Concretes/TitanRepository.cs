@@ -23,9 +23,9 @@ namespace TechTitans.Data.Repositories.Concretes
         {
             if (_repo.Count == 0)
             {
-                _repo.Add(new Titan() { Id = 1, Name = "Steve Jobs" });
-                _repo.Add(new Titan() { Id = 2, Name = "Elon Musk" });
-                _repo.Add(new Titan() { Id = 3, Name = "Satya Nadella" });
+                _repo.Add(new Titan() { Id = 0, Name = "Steve Jobs" });
+                _repo.Add(new Titan() { Id = 1, Name = "Elon Musk" });
+                _repo.Add(new Titan() { Id = 2, Name = "Satya Nadella" });
             }
         }
 
@@ -40,6 +40,9 @@ namespace TechTitans.Data.Repositories.Concretes
 
         public void Add(Titan titan)
         {
+            // get the next Id
+            titan.Id = _repo.Last().Id + 1;
+
             _repo.Add(titan);
         }
 
@@ -54,7 +57,7 @@ namespace TechTitans.Data.Repositories.Concretes
 
         public void Delete(Titan titan)
         {
-            _repo.Remove(titan);
+            _repo.RemoveAt(titan.Id);
         }
 
         public Titan GetById(int Id)
